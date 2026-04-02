@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "vite-cfagents-runner",
+	"name": "pride-accounting-web-usao-nwyrr1d5foz-l8qm",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-04-24",
 	"compatibility_flags": ["nodejs_compat"],
