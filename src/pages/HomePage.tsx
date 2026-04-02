@@ -28,7 +28,7 @@ export function HomePage() {
       </div>
       {/* Interactive Layer */}
       <AiAssistant />
-      <Toaster position="bottom-right" richColors />
+      <Toaster position="top-right" richColors />
     </main>
   );
 }

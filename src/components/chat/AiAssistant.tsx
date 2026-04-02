@@ -18,34 +18,58 @@ export function AiAssistant() {
     }
   }, [messages, isTyping]);
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || isTyping) return;
     const userMessage: Message = {
       id: crypto.randomUUID(),
       role: 'user',
-      content: input,
+      content: input.trim(),
       timestamp: Date.now()
     };
-    setMessages(prev => [...prev, userMessage]);
+    const assistantId = crypto.randomUUID();
+    const placeholderAssistantMessage: Message = {
+      id: assistantId,
+      role: 'assistant',
+      content: '',
+      timestamp: Date.now()
+    };
+    setMessages(prev => [...prev, userMessage, placeholderAssistantMessage]);
+    const currentInput = input;
     setInput('');
     setIsTyping(true);
     try {
-      let assistantContent = '';
+      let accumulatedContent = '';
       await chatService.sendMessage(
-        input,
+        currentInput,
         'google-ai-studio/gemini-2.0-flash',
         (chunk) => {
-          assistantContent += chunk;
+          accumulatedContent += chunk;
+          setMessages(prev => 
+            prev.map(msg => 
+              msg.id === assistantId 
+                ? { ...msg, content: accumulatedContent } 
+                : msg
+            )
+          );
         }
       );
-      const assistantMessage: Message = {
-        id: crypto.randomUUID(),
-        role: 'assistant',
-        content: assistantContent || "I'm sorry, I'm having trouble connecting to the accounting server.",
-        timestamp: Date.now()
-      };
-      setMessages(prev => [...prev, assistantMessage]);
+      if (!accumulatedContent) {
+        setMessages(prev => 
+          prev.map(msg => 
+            msg.id === assistantId 
+              ? { ...msg, content: "I'm sorry, I'm having trouble connecting to the accounting server." } 
+              : msg
+          )
+        );
+      }
     } catch (error) {
-      console.error(error);
+      console.error('AI Assistant Error:', error);
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === assistantId 
+            ? { ...msg, content: "An error occurred while processing your request. Please try again." } 
+            : msg
+        )
+      );
     } finally {
       setIsTyping(false);
     }
@@ -85,19 +109,19 @@ export function AiAssistant() {
                   {messages.map((msg) => (
                     <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
-                        msg.role === 'user' 
-                          ? 'bg-emerald-500 text-white rounded-tr-none' 
-                          : 'bg-white/10 text-slate-200 rounded-tl-none border border-white/5'
+                        msg.role === 'user'
+                          ? 'bg-emerald-500 text-white rounded-tr-none'
+                          : 'bg-white/10 text-slate-200 rounded-tl-none border border-white/5 whitespace-pre-wrap'
                       }`}>
-                        {msg.content}
+                        {msg.content || (msg.role === 'assistant' && isTyping && msg.id === messages[messages.length - 1].id ? '...' : '')}
                       </div>
                     </div>
                   ))}
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none border border-white/5 flex gap-1">
-                        <Loader2 className="h-4 w-4 animate-spin text-emerald-500" />
-                        <span className="text-xs text-slate-400">Thinking...</span>
+                      <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none border border-white/5 flex gap-1 items-center">
+                        <Loader2 className="h-3 w-3 animate-spin text-emerald-500" />
+                        <span className="text-[10px] text-slate-400 uppercase tracking-widest font-medium">Processing</span>
                       </div>
                     </div>
                   )}
@@ -109,11 +133,12 @@ export function AiAssistant() {
                   <input
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                    onKeyDown={(e) => e.key === 'Enter' && !isTyping && handleSend()}
                     placeholder="Type your question..."
-                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500/50 transition-colors"
+                    disabled={isTyping}
+                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500/50 transition-colors disabled:opacity-50"
                   />
-                  <Button onClick={handleSend} size="icon" className="btn-emerald h-9 w-9 shrink-0">
+                  <Button onClick={handleSend} size="icon" className="btn-emerald h-9 w-9 shrink-0" disabled={isTyping || !input.trim()}>
                     <Send className="h-4 w-4" />
                   </Button>
                 </div>
