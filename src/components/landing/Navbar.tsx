@@ -18,6 +18,10 @@ export function Navbar() {
     { name: 'About', href: '/#about' },
     { name: 'Global', href: '/#global' },
   ];
+  const isActive = (href: string) => {
+    if (href === '/') return location.pathname === '/';
+    return location.pathname.startsWith(href);
+  };
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -31,12 +35,17 @@ export function Navbar() {
             <Link
               key={link.name}
               to={link.href}
-              className={`text-sm font-medium transition-colors ${location.pathname === link.href ? 'text-emerald-400' : 'text-slate-300 hover:text-emerald-400'}`}
+              className={`text-sm font-medium transition-all relative group ${isActive(link.href) ? 'text-emerald-400' : 'text-slate-300 hover:text-emerald-400'}`}
             >
               {link.name}
+              {isActive(link.href) && (
+                <motion.div layoutId="nav-active" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+              )}
             </Link>
           ))}
-          <Button className="btn-emerald">Book Consultation</Button>
+          <Link to="/contact">
+            <Button className="btn-emerald">Book Consultation</Button>
+          </Link>
         </div>
         <button
           className="md:hidden text-white"
@@ -58,13 +67,15 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className="block text-lg text-slate-300 hover:text-emerald-400"
+                  className={`block text-lg transition-colors ${isActive(link.href) ? 'text-emerald-400' : 'text-slate-300'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Button className="w-full btn-emerald">Book Consultation</Button>
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="w-full btn-emerald">Book Consultation</Button>
+              </Link>
             </div>
           </motion.div>
         )}

@@ -5,10 +5,14 @@ import { Hero } from '@/components/landing/Hero';
 import { ServicesSection } from '@/components/landing/ServicesSection';
 import { CompanySection } from '@/components/landing/CompanySection';
 import { Footer } from '@/components/landing/Footer';
+import { AiAssistant } from '@/components/chat/AiAssistant';
+import { HashScrollHandler } from '@/components/layout/HashScrollHandler';
 import { Toaster } from '@/components/ui/sonner';
 export function HomePage() {
   return (
     <main className="relative min-h-screen bg-[#0B1120] text-slate-50 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+      {/* Global Utilities */}
+      <HashScrollHandler />
       {/* Fixed Ambient Background */}
       <AnimatedBackground />
       {/* Navigation */}
@@ -16,12 +20,14 @@ export function HomePage() {
       {/* Page Content */}
       <div className="relative z-10">
         <Hero />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="about" className="scroll-mt-24">
            <ServicesSection />
-           <CompanySection />
         </div>
+        <CompanySection />
         <Footer />
       </div>
+      {/* Interactive Layer */}
+      <AiAssistant />
       <Toaster position="bottom-right" richColors />
     </main>
   );

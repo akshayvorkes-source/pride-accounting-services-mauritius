@@ -5,15 +5,17 @@ import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 export function Footer() {
   return (
-    <footer className="pt-24 pb-12 relative overflow-hidden">
+    <footer className="pt-24 pb-12 relative overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Massive CTA */}
-        <GlassCard className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 py-16 text-center mb-24">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Let’s Take the Complexity Out of Your Accounting</h2>
+        <GlassCard className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 py-16 text-center mb-24 group">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 group-hover:scale-[1.01] transition-transform duration-500">Let’s Take the Complexity Out of Your Accounting</h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
             Join hundreds of forward-thinking businesses. Book your free strategy session today.
           </p>
-          <Button className="btn-emerald h-14 px-10 text-lg">Book Free Consultation</Button>
+          <Link to="/contact">
+            <Button className="btn-emerald h-14 px-10 text-lg">Book Free Consultation</Button>
+          </Link>
         </GlassCard>
         {/* Footer Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 mb-12">
@@ -45,9 +47,9 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Locations</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li>Mauritius (HQ)</li>
-              <li>London, UK</li>
-              <li>South Africa</li>
+              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> Mauritius (HQ)</li>
+              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> London, UK</li>
+              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> South Africa</li>
             </ul>
           </div>
           <div>
@@ -55,7 +57,6 @@ export function Footer() {
             <ul className="space-y-4 text-slate-400 text-sm">
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-emerald-500" /> contact@prideaccounting.mu</li>
               <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-emerald-500" /> +230 460 0000</li>
-              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-emerald-500" /> Ebene Cybercity, Mauritius</li>
             </ul>
           </div>
         </div>
@@ -66,7 +67,7 @@ export function Footer() {
             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
           <p className="text-slate-500 text-[10px] text-center max-w-xs">
-            *Note: While we utilize AI-driven efficiencies, request limits apply across all systems to maintain service stability.
+            *Note: AI assistance is provided for informational purposes only. Request limits apply.
           </p>
         </div>
       </div>

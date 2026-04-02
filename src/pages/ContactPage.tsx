@@ -35,7 +35,7 @@ export function ContactPage() {
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">Scale Your Business with <span className="text-emerald-500">Expert Guidance</span></h1>
               <p className="text-xl text-slate-400 leading-relaxed">
-                Based in Mauritius, our experts are ready to streamline your financial operations with specialized local knowledge and global standards.
+                Whether you're an entrepreneur in London, a corporate entity in Mauritius, or expanding in South Africa, our experts are ready to streamline your financial operations.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -53,18 +53,15 @@ export function ContactPage() {
                   <Clock className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold">Availability</p>
-                  <p className="text-xs text-slate-400">Rose Hill HQ</p>
+                  <p className="text-sm font-bold">Response Time</p>
+                  <p className="text-xs text-slate-400">Under 24 Hours</p>
                 </div>
               </GlassCard>
             </div>
             <div className="space-y-6 pt-8 border-t border-white/10">
-              <div className="flex items-start gap-4">
-                <MapPin className="h-5 w-5 text-emerald-500 shrink-0 mt-1" />
-                <div>
-                  <p className="text-slate-300 text-sm">41 Avenue Taher, Beau Bassin-Rose Hill, Mauritius</p>
-                  <p className="text-slate-500 text-[10px] font-mono mt-1">PLUS CODE: QF26+PH</p>
-                </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="h-5 w-5 text-emerald-500" />
+                <span className="text-slate-300 text-sm">Ebene Cybercity, Mauritius (HQ)</span>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-5 w-5 text-emerald-500" />
@@ -72,7 +69,7 @@ export function ContactPage() {
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-5 w-5 text-emerald-500" />
-                <span className="text-slate-300 text-sm">+230 5938 7068</span>
+                <span className="text-slate-300 text-sm">+230 460 0000</span>
               </div>
             </div>
           </motion.div>
@@ -99,12 +96,15 @@ export function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label>Jurisdiction</Label>
-                    <Select defaultValue="mauritius">
+                    <Select>
                       <SelectTrigger className="bg-white/5 border-white/10">
                         <SelectValue placeholder="Select location" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="mauritius">Mauritius</SelectItem>
+                        <SelectItem value="uk">United Kingdom</SelectItem>
+                        <SelectItem value="sa">South Africa</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
