@@ -2,55 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About', href: '/#about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Services', href: '#services' },
+    { name: 'About', href: '#about' },
+    { name: 'Global', href: '#global' },
+    { name: 'Approach', href: '#approach' },
   ];
-  const isActive = (href: string) => {
-    if (href.includes('#')) {
-      const [path, hash] = href.split('#');
-      return location.pathname === path && location.hash === `#${hash}`;
-    }
-    return location.pathname === href && !location.hash;
-  };
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <div className="flex items-center gap-2">
           <span className="text-2xl font-bold tracking-tighter text-white">
-            PRIDE<span className="text-emerald-500 group-hover:text-emerald-400 transition-colors">ACCOUNTING</span>
+            PRIDE<span className="text-emerald-500">ACCOUNTING</span>
           </span>
-        </Link>
+        </div>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={`text-sm font-medium transition-all relative group ${isActive(link.href) ? 'text-emerald-400' : 'text-slate-300 hover:text-emerald-400'}`}
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors"
             >
               {link.name}
-              {isActive(link.href) && (
-                <motion.div layoutId="nav-active" className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-              )}
-            </Link>
+            </a>
           ))}
-          <Link to="/contact">
-            <Button className="btn-emerald">Book Consultation</Button>
-          </Link>
+          <Button className="btn-emerald">Book Consultation</Button>
         </div>
-        <button
+        <button 
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -67,18 +53,16 @@ export function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className={`block text-lg transition-colors ${isActive(link.href) ? 'text-emerald-400' : 'text-slate-300'}`}
+                <a 
+                  key={link.name} 
+                  href={link.href} 
+                  className="block text-lg text-slate-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full btn-emerald">Book Consultation</Button>
-              </Link>
+              <Button className="w-full btn-emerald">Book Consultation</Button>
             </div>
           </motion.div>
         )}

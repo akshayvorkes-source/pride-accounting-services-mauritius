@@ -1,31 +1,23 @@
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 export function Hero() {
-  const containerVariants: Variants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.2 }
     }
   };
-  const itemVariants: Variants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+        <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -36,26 +28,22 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Trusted Mauritius Accounting Firm
+            Trusted International Accounting Firm
           </motion.div>
           <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
             Accounting & Bookkeeping Services <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">You Can Trust.</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl">
-            Empowering businesses with precision accounting, tax compliance, and payroll management from the strategic hub of Mauritius.
+            Empowering global businesses with precision accounting, tax compliance, and payroll management from our strategic hubs in Mauritius, London, and South Africa.
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact">
-              <Button className="btn-emerald h-14 px-8 text-lg group w-full sm:w-auto">
-                Schedule a Consultation
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" className="h-14 px-8 text-lg border-white/10 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm w-full sm:w-auto">
-                Speak to an Expert
-              </Button>
-            </Link>
+            <Button className="btn-emerald h-14 px-8 text-lg group">
+              Schedule a Consultation
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="outline" className="h-14 px-8 text-lg border-white/10 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm">
+              Speak to an Expert
+            </Button>
           </motion.div>
         </motion.div>
       </div>
