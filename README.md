@@ -1,6 +1,6 @@
 # Cloudflare AI Chat Application
 
-[![Deploy to Cloudflare]([cloudflarebutton])]([cloudflarebutton])
+[![Deploy to Cloudflare]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/akshayvorkes-source/pride-accounting-services-mauritius))]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/akshayvorkes-source/pride-accounting-services-mauritius))
 
 A production-ready, full-stack AI chat application built on Cloudflare Workers. Features multi-session conversations, streaming responses, tool calling (weather, web search, MCP integration), and a modern React frontend. Powered by Cloudflare Agents, Durable Objects, and AI Gateway for scalable, edge-deployed AI experiences.
 
@@ -106,7 +106,7 @@ Watch for Durable Object migrations in `wrangler.jsonc`.
    ```
    Or use the dashboard.
 
-[![Deploy to Cloudflare]([cloudflarebutton])]([cloudflarebutton])
+[![Deploy to Cloudflare]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/akshayvorkes-source/pride-accounting-services-mauritius))]([![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/akshayvorkes-source/pride-accounting-services-mauritius))
 
 **Custom Domain**: Set in Cloudflare Dashboard > Workers > Triggers.
 
