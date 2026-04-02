@@ -16,7 +16,7 @@ export function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/#about' },
-    { name: 'Global', href: '/#global' },
+    { name: 'Contact', href: '/contact' },
   ];
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';

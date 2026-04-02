@@ -56,7 +56,7 @@ export function AiAssistant() {
         setMessages(prev =>
           prev.map(msg =>
             msg.id === assistantId
-              ? { ...msg, content: "I'm sorry, I'm having trouble connecting to the accounting server." }
+              ? { ...msg, content: "I'm sorry, I'm having trouble connecting to our local Mauritius server." }
               : msg
           )
         );
@@ -105,7 +105,7 @@ export function AiAssistant() {
                     <div className="text-center py-12 space-y-4">
                       <Bot className="h-12 w-12 text-emerald-500/30 mx-auto" />
                       <p className="text-xs text-slate-400 max-w-[200px] mx-auto leading-relaxed">
-                        How can I help you today? Ask about tax compliance, Mauritius accounting, or our global hubs.
+                        How can I help you today? Ask about MRA tax compliance, Mauritius accounting, or our Rose Hill headquarters.
                       </p>
                     </div>
                   )}

@@ -35,7 +35,7 @@ export function ContactPage() {
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">Scale Your Business with <span className="text-emerald-500">Expert Guidance</span></h1>
               <p className="text-xl text-slate-400 leading-relaxed">
-                Whether you're an entrepreneur in London, a corporate entity in Mauritius, or expanding in South Africa, our experts are ready to streamline your financial operations.
+                Based in Mauritius, our experts are ready to streamline your financial operations with specialized local knowledge and global standards.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -54,7 +54,7 @@ export function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm font-bold">Availability</p>
-                  <p className="text-xs text-slate-400">Open 24 Hours</p>
+                  <p className="text-xs text-slate-400">Rose Hill HQ</p>
                 </div>
               </GlassCard>
             </div>
@@ -99,15 +99,12 @@ export function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label>Jurisdiction</Label>
-                    <Select>
+                    <Select defaultValue="mauritius">
                       <SelectTrigger className="bg-white/5 border-white/10">
                         <SelectValue placeholder="Select location" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="mauritius">Mauritius</SelectItem>
-                        <SelectItem value="uk">United Kingdom</SelectItem>
-                        <SelectItem value="sa">South Africa</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

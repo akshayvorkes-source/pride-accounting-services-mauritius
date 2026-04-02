@@ -36,13 +36,13 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Trusted International Accounting Firm
+            Trusted Mauritius Accounting Firm
           </motion.div>
           <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
             Accounting & Bookkeeping Services <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">You Can Trust.</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl">
-            Empowering global businesses with precision accounting, tax compliance, and payroll management from our strategic hubs in Mauritius, London, and South Africa.
+            Empowering businesses with precision accounting, tax compliance, and payroll management from the strategic hub of Mauritius.
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">

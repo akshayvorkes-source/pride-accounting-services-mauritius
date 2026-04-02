@@ -11,7 +11,7 @@ export function Footer() {
         <GlassCard className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border-emerald-500/20 py-16 text-center mb-24 group">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 group-hover:scale-[1.01] transition-transform duration-500">Let’s Take the Complexity Out of Your Accounting</h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            Join hundreds of forward-thinking businesses. Book your free strategy session today.
+            The premier choice for businesses in Mauritius. Book your free strategy session today.
           </p>
           <Link to="/contact">
             <Button className="btn-emerald h-14 px-10 text-lg">Book Free Consultation</Button>
@@ -24,7 +24,7 @@ export function Footer() {
               PRIDE<span className="text-emerald-500">ACCOUNTING</span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Leading the way in premium international accounting services for the modern global economy.
+              Leading the way in premium Mauritius accounting services for the modern economy.
             </p>
             <div className="flex gap-4">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-all border border-white/5 hover:border-emerald-500/30 group" aria-label="LinkedIn">
@@ -55,12 +55,6 @@ export function Footer() {
                   <span className="text-[10px] text-slate-600 font-mono tracking-wider">QF26+PH</span>
                 </span>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-3 w-3 text-emerald-500" /> London Hub, UK
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-3 w-3 text-emerald-500" /> Cape Town, ZA
-              </li>
             </ul>
           </div>
           <div>
@@ -73,7 +67,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-emerald-500" /> +230 5938 7068
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="h-4 w-4 text-emerald-500" /> 24/7 Global Availability
+                <Clock className="h-4 w-4 text-emerald-500" /> 24/7 Availability
               </li>
             </ul>
           </div>
