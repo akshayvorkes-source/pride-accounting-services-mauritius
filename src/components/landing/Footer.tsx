@@ -17,21 +17,21 @@ export function Footer() {
             <Button className="btn-emerald h-14 px-10 text-lg">Book Free Consultation</Button>
           </Link>
         </GlassCard>
-        {/* Footer Links */}
+        {/* Footer Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 mb-12">
           <div className="space-y-6">
-            <Link to="/" className="text-2xl font-bold text-white tracking-tighter">
+            <Link to="/" className="text-2xl font-bold text-white tracking-tighter block">
               PRIDE<span className="text-emerald-500">ACCOUNTING</span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
               Leading the way in premium international accounting services for the modern global economy.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors">
-                <Linkedin className="h-5 w-5 text-slate-300" />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-all border border-white/5 hover:border-emerald-500/30 group" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5 text-slate-400 group-hover:text-emerald-400" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors">
-                <Twitter className="h-5 w-5 text-slate-300" />
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-all border border-white/5 hover:border-emerald-500/30 group" aria-label="Twitter">
+                <Twitter className="h-5 w-5 text-slate-400 group-hover:text-emerald-400" />
               </a>
             </div>
           </div>
@@ -52,14 +52,14 @@ export function Footer() {
                 <span>
                   41 Avenue Taher, <br />
                   Beau Bassin-Rose Hill, Mauritius <br />
-                  <span className="text-[10px] text-slate-600 font-mono">QF26+PH</span>
+                  <span className="text-[10px] text-slate-600 font-mono tracking-wider">QF26+PH</span>
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-3 w-3 text-emerald-500" /> London, UK
+                <MapPin className="h-3 w-3 text-emerald-500" /> London Hub, UK
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="h-3 w-3 text-emerald-500" /> South Africa
+                <MapPin className="h-3 w-3 text-emerald-500" /> Cape Town, ZA
               </li>
             </ul>
           </div>
@@ -73,19 +73,20 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-emerald-500" /> +230 5938 7068
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="h-4 w-4 text-emerald-500" /> Open 24 Hours
+                <Clock className="h-4 w-4 text-emerald-500" /> 24/7 Global Availability
               </li>
             </ul>
           </div>
         </div>
+        {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-sm">© 2024 Pride Accounting Services. All rights reserved.</p>
-          <div className="flex gap-8 text-slate-500 text-sm">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+          <p className="text-slate-500 text-xs">© 2024 Pride Accounting Services Ltd. All rights reserved.</p>
+          <div className="flex gap-8 text-slate-500 text-xs font-medium">
+            <Link to="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-slate-500 text-[10px] text-center max-w-xs">
-            *Note: AI assistance is provided for informational purposes only. Request limits apply.
+          <p className="text-slate-600 text-[10px] text-center max-w-xs uppercase tracking-tighter">
+            Note: Platform usage limits apply for AI features.
           </p>
         </div>
       </div>

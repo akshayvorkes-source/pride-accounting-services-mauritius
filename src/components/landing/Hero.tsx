@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 export function Hero() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -12,13 +13,13 @@ export function Hero() {
   };
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { 
-        duration: 0.6, 
-        ease: "easeOut" 
-      } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
     }
   };
   return (
@@ -44,13 +45,17 @@ export function Hero() {
             Empowering global businesses with precision accounting, tax compliance, and payroll management from our strategic hubs in Mauritius, London, and South Africa.
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-            <Button className="btn-emerald h-14 px-8 text-lg group">
-              Schedule a Consultation
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" className="h-14 px-8 text-lg border-white/10 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm">
-              Speak to an Expert
-            </Button>
+            <Link to="/contact">
+              <Button className="btn-emerald h-14 px-8 text-lg group w-full sm:w-auto">
+                Schedule a Consultation
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outline" className="h-14 px-8 text-lg border-white/10 bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm w-full sm:w-auto">
+                Speak to an Expert
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
