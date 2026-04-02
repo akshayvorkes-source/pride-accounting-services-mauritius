@@ -22,7 +22,7 @@ export function LegalPage({ title }: LegalPageProps) {
             <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white">1. Introduction</h2>
               <p>
-                Pride Accounting Services Mauritius ("we", "us", or "our") is committed to protecting your privacy and providing professional accounting services. This document outlines our practices regarding data collection and usage across our global offices in Mauritius, the UK, and South Africa.
+                Pride Accounting Services Mauritius ("we", "us", or "our") is committed to protecting your privacy and providing professional accounting services. This document outlines our practices regarding data collection and usage across our global offices in Beau Bassin-Rose Hill (Mauritius), London (UK), and South Africa.
               </p>
             </section>
             <section className="space-y-4">
@@ -46,7 +46,7 @@ export function LegalPage({ title }: LegalPageProps) {
             <section className="space-y-4 bg-white/5 p-6 rounded-xl border border-white/10">
               <h3 className="text-lg font-bold text-emerald-400">Jurisdiction Compliance</h3>
               <ul className="list-disc pl-5 space-y-2 text-sm">
-                <li>Mauritius: Compliance with Companies Act 2001.</li>
+                <li>Mauritius: Primary office at 41 Avenue Taher, Beau Bassin-Rose Hill. Compliance with Companies Act 2001.</li>
                 <li>UK: Registered for HMRC VAT and Corporation Tax filings.</li>
                 <li>South Africa: Compliance with SARS regulations and Companies Act.</li>
               </ul>

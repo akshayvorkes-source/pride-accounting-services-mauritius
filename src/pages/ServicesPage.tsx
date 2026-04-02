@@ -47,14 +47,14 @@ export function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <section className="text-center mb-24">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-6xl font-bold mb-6"
             >
               Our Specialized <span className="text-emerald-500">Expertise</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -139,7 +139,7 @@ export function ServicesPage() {
               <AccordionItem value="item-1" className="glass-panel px-6 rounded-xl border-none">
                 <AccordionTrigger className="text-white hover:no-underline">How do you handle Mauritius specific compliance?</AccordionTrigger>
                 <AccordionContent className="text-slate-400">
-                  Our core team is based in Ebene Cybercity. We handle all MRA filings, CSG/PAYE, and ensure compliance with the Companies Act 2001 and subsequent amendments.
+                  Our core team is based in Beau Bassin-Rose Hill. We handle all MRA filings, CSG/PAYE, and ensure compliance with the Companies Act 2001 and subsequent amendments.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2" className="glass-panel px-6 rounded-xl border-none">

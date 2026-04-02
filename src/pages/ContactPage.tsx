@@ -53,15 +53,18 @@ export function ContactPage() {
                   <Clock className="h-5 w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold">Response Time</p>
-                  <p className="text-xs text-slate-400">Under 24 Hours</p>
+                  <p className="text-sm font-bold">Availability</p>
+                  <p className="text-xs text-slate-400">Open 24 Hours</p>
                 </div>
               </GlassCard>
             </div>
             <div className="space-y-6 pt-8 border-t border-white/10">
-              <div className="flex items-center gap-4">
-                <MapPin className="h-5 w-5 text-emerald-500" />
-                <span className="text-slate-300 text-sm">Ebene Cybercity, Mauritius (HQ)</span>
+              <div className="flex items-start gap-4">
+                <MapPin className="h-5 w-5 text-emerald-500 shrink-0 mt-1" />
+                <div>
+                  <p className="text-slate-300 text-sm">41 Avenue Taher, Beau Bassin-Rose Hill, Mauritius</p>
+                  <p className="text-slate-500 text-[10px] font-mono mt-1">PLUS CODE: QF26+PH</p>
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 <Mail className="h-5 w-5 text-emerald-500" />
@@ -69,7 +72,7 @@ export function ContactPage() {
               </div>
               <div className="flex items-center gap-4">
                 <Phone className="h-5 w-5 text-emerald-500" />
-                <span className="text-slate-300 text-sm">+230 460 0000</span>
+                <span className="text-slate-300 text-sm">+230 5938 7068</span>
               </div>
             </div>
           </motion.div>

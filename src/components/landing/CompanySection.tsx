@@ -4,9 +4,22 @@ import { GlassCard } from '@/components/ui/glass-card';
 import { MapPin, CheckCircle2 } from 'lucide-react';
 export function CompanySection() {
   const locations = [
-    { city: 'Mauritius', detail: 'HQ & Strategic Hub', coordinates: 'Ebene Cybercity' },
-    { city: 'London', detail: 'UK Compliance Center', coordinates: 'Canary Wharf' },
-    { city: 'South Africa', detail: 'Regional Operations', coordinates: 'Cape Town' },
+    { 
+      city: 'Mauritius', 
+      detail: 'Primary Headquarters', 
+      coordinates: '41 Avenue Taher, Beau Bassin-Rose Hill',
+      plusCode: 'QF26+PH'
+    },
+    { 
+      city: 'London', 
+      detail: 'UK Compliance Center', 
+      coordinates: 'Canary Wharf' 
+    },
+    { 
+      city: 'South Africa', 
+      detail: 'Regional Operations', 
+      coordinates: 'Cape Town' 
+    },
   ];
   const approachPoints = [
     'Real-time financial visibility through cloud accounting.',
@@ -22,6 +35,7 @@ export function CompanySection() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">A Modern Approach to Traditional Excellence</h2>
@@ -38,8 +52,8 @@ export function CompanySection() {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/20 blur-[100px] rounded-full" />
               <GlassCard className="relative p-0 overflow-hidden aspect-video">
-                <img 
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2022&auto=format&fit=crop" 
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2022&auto=format&fit=crop"
                   alt="Modern accounting office"
                   className="w-full h-full object-cover opacity-60"
                 />
@@ -59,10 +73,11 @@ export function CompanySection() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
             {locations.map((loc, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.2 }}
                 className="text-center group"
               >
@@ -74,7 +89,10 @@ export function CompanySection() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{loc.city}</h3>
                 <p className="text-emerald-500/80 text-sm font-medium mb-1">{loc.detail}</p>
-                <p className="text-slate-500 text-xs">{loc.coordinates}</p>
+                <p className="text-slate-400 text-xs max-w-[200px] mx-auto">{loc.coordinates}</p>
+                {loc.plusCode && (
+                  <p className="text-slate-500 text-[10px] mt-1 font-mono uppercase tracking-wider">{loc.plusCode}</p>
+                )}
               </motion.div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 export function Footer() {
   return (
@@ -45,18 +45,36 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-6">Locations</h4>
+            <h4 className="text-white font-bold mb-6">Headquarters</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> Mauritius (HQ)</li>
-              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> London, UK</li>
-              <li className="flex items-center gap-2"><MapPin className="h-3 w-3 text-emerald-500" /> South Africa</li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>
+                  41 Avenue Taher, <br />
+                  Beau Bassin-Rose Hill, Mauritius <br />
+                  <span className="text-[10px] text-slate-600 font-mono">QF26+PH</span>
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-3 w-3 text-emerald-500" /> London, UK
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-3 w-3 text-emerald-500" /> South Africa
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-emerald-500" /> contact@prideaccounting.mu</li>
-              <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-emerald-500" /> +230 460 0000</li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-emerald-500" /> contact@prideaccounting.mu
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-emerald-500" /> +230 5938 7068
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock className="h-4 w-4 text-emerald-500" /> Open 24 Hours
+              </li>
             </ul>
           </div>
         </div>
