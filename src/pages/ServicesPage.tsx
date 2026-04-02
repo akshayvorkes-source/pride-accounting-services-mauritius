@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Check, Shield, Zap, Landmark, BarChart3, Receipt, Users, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 export function ServicesPage() {
   const deepDives = [
     {
@@ -66,7 +67,11 @@ export function ServicesPage() {
           {/* Deep Dives */}
           <section className="space-y-32 mb-32">
             {deepDives.map((service, idx) => (
-              <div key={service.id} className={`flex flex-col lg:flex-row gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div 
+                key={service.id} 
+                id={service.id} 
+                className={`flex flex-col lg:flex-row gap-16 items-center scroll-mt-32 ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              >
                 <div className="flex-1 space-y-8">
                   <div className="h-16 w-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
                     <service.icon className="h-8 w-8 text-emerald-400" />
@@ -125,9 +130,11 @@ export function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Button className={pkg.name === 'Growth' ? 'btn-emerald' : 'bg-white/10 hover:bg-white/20 text-white'}>
-                    Get Started
-                  </Button>
+                  <Link to="/contact">
+                    <Button className={pkg.name === 'Growth' ? 'btn-emerald w-full' : 'bg-white/10 hover:bg-white/20 text-white w-full'}>
+                      Get Started
+                    </Button>
+                  </Link>
                 </GlassCard>
               ))}
             </div>

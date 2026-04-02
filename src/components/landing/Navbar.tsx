@@ -19,8 +19,11 @@ export function Navbar() {
     { name: 'Contact', href: '/contact' },
   ];
   const isActive = (href: string) => {
-    if (href === '/') return location.pathname === '/';
-    return location.pathname.startsWith(href);
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      return location.pathname === path && location.hash === `#${hash}`;
+    }
+    return location.pathname === href && !location.hash;
   };
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>

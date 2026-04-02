@@ -74,7 +74,7 @@ export function Footer() {
         </div>
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-slate-500 text-xs">© 2024 Pride Accounting Services Ltd. All rights reserved.</p>
+          <p className="text-slate-500 text-xs">© 2025 Pride Accounting Services Ltd. All rights reserved.</p>
           <div className="flex gap-8 text-slate-500 text-xs font-medium">
             <Link to="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link>

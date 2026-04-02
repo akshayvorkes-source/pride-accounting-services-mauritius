@@ -17,6 +17,18 @@ export function AiAssistant() {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isTyping]);
+  // Load existing messages when the chat opens
+  useEffect(() => {
+    if (isOpen) {
+      const loadMessages = async () => {
+        const response = await chatService.getMessages();
+        if (response.success && response.data?.messages) {
+          setMessages(response.data.messages);
+        }
+      };
+      loadMessages();
+    }
+  }, [isOpen]);
   const handleSend = async () => {
     if (!input.trim() || isTyping) return;
     const userMessage: Message = {
@@ -101,7 +113,7 @@ export function AiAssistant() {
               </div>
               <ScrollArea className="flex-1 p-4">
                 <div className="space-y-4">
-                  {messages.length === 0 && (
+                  {messages.length === 0 && !isTyping && (
                     <div className="text-center py-12 space-y-4">
                       <Bot className="h-12 w-12 text-emerald-500/30 mx-auto" />
                       <p className="text-xs text-slate-400 max-w-[200px] mx-auto leading-relaxed">
@@ -116,11 +128,11 @@ export function AiAssistant() {
                           ? 'bg-emerald-500 text-white rounded-tr-none shadow-lg'
                           : 'bg-white/10 text-slate-200 rounded-tl-none border border-white/5 whitespace-pre-wrap'
                       }`}>
-                        {msg.content}
+                        {msg.content || (msg.role === 'assistant' && isTyping && msg.id === messages[messages.length - 1].id ? <Loader2 className="h-3 w-3 animate-spin inline" /> : msg.content)}
                       </div>
                     </div>
                   ))}
-                  {isTyping && (
+                  {isTyping && messages[messages.length - 1]?.content === '' && (
                     <div className="flex justify-start">
                       <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none border border-white/5 flex gap-2 items-center">
                         <Loader2 className="h-3 w-3 animate-spin text-emerald-500" />
