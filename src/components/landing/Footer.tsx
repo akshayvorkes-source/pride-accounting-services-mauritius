@@ -2,6 +2,7 @@ import React from 'react';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 export function Footer() {
   return (
     <footer className="pt-24 pb-12 relative overflow-hidden">
@@ -17,9 +18,9 @@ export function Footer() {
         {/* Footer Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 mb-12">
           <div className="space-y-6">
-            <span className="text-2xl font-bold text-white tracking-tighter">
+            <Link to="/" className="text-2xl font-bold text-white tracking-tighter">
               PRIDE<span className="text-emerald-500">ACCOUNTING</span>
-            </span>
+            </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
               Leading the way in premium international accounting services for the modern global economy.
             </p>
@@ -35,10 +36,10 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Services</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Outsourced Accounting</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Tax Compliance</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Payroll Solutions</a></li>
-              <li><a href="#" className="hover:text-emerald-400 transition-colors">Audit Support</a></li>
+              <li><Link to="/services#accounting" className="hover:text-emerald-400 transition-colors">Outsourced Accounting</Link></li>
+              <li><Link to="/services#tax" className="hover:text-emerald-400 transition-colors">Tax Compliance</Link></li>
+              <li><Link to="/services#payroll" className="hover:text-emerald-400 transition-colors">Payroll Solutions</Link></li>
+              <li><Link to="/services" className="hover:text-emerald-400 transition-colors">Audit Support</Link></li>
             </ul>
           </div>
           <div>
@@ -58,11 +59,11 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col md:row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-500 text-sm">© 2024 Pride Accounting Services. All rights reserved.</p>
           <div className="flex gap-8 text-slate-500 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
           <p className="text-slate-500 text-[10px] text-center max-w-xs">
             *Note: While we utilize AI-driven efficiencies, request limits apply across all systems to maintain service stability.

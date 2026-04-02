@@ -2,41 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Global', href: '#global' },
-    { name: 'Approach', href: '#approach' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'About', href: '/#about' },
+    { name: 'Global', href: '/#global' },
   ];
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 group">
           <span className="text-2xl font-bold tracking-tighter text-white">
-            PRIDE<span className="text-emerald-500">ACCOUNTING</span>
+            PRIDE<span className="text-emerald-500 group-hover:text-emerald-400 transition-colors">ACCOUNTING</span>
           </span>
-        </div>
+        </Link>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors"
+            <Link
+              key={link.name}
+              to={link.href}
+              className={`text-sm font-medium transition-colors ${location.pathname === link.href ? 'text-emerald-400' : 'text-slate-300 hover:text-emerald-400'}`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <Button className="btn-emerald">Book Consultation</Button>
         </div>
-        <button 
+        <button
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -53,14 +55,14 @@ export function Navbar() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  className="block text-lg text-slate-300"
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="block text-lg text-slate-300 hover:text-emerald-400"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Button className="w-full btn-emerald">Book Consultation</Button>
             </div>

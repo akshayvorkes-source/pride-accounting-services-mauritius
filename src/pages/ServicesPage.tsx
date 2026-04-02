@@ -5,16 +5,15 @@ import { Footer } from '@/components/landing/Footer';
 import { GlassCard } from '@/components/ui/glass-card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Check, Shield, Zap, Landmark, BarChart3, Receipt, Users, CreditCard } from 'lucide-react';
+import { Check, Shield, Zap, Globe, BarChart3, Receipt, Users, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 export function ServicesPage() {
   const deepDives = [
     {
       id: 'accounting',
       title: 'Outsourced Accounting & Bookkeeping',
       icon: BarChart3,
-      description: 'Accurate, audit-ready financial records managed by Mauritius experts.',
+      description: 'Accurate, audit-ready financial records managed by experts.',
       benefits: ['Real-time daily bookkeeping', 'Monthly management accounts', 'Annual financial statements', 'Audit preparation & coordination'],
       process: ['Discovery Call', 'System Integration', 'Daily Operations', 'Monthly Review']
     },
@@ -22,23 +21,23 @@ export function ServicesPage() {
       id: 'tax',
       title: 'Tax Compliance & Statutory Reporting',
       icon: Shield,
-      description: 'Navigating complex MRA regulations in Mauritius.',
-      benefits: ['Corporate income tax filing', 'VAT returns', 'Withholding tax management', 'Tax planning'],
+      description: 'Navigating complex regulations in Mauritius, UK, and South Africa.',
+      benefits: ['Corporate income tax filing', 'VAT/GST returns', 'Withholding tax management', 'International tax planning'],
       process: ['Compliance Audit', 'Tax Strategy', 'Periodic Filing', 'Optimization']
     },
     {
       id: 'payroll',
       title: 'Payroll Management',
       icon: Users,
-      description: 'Seamless payroll processing for teams in Mauritius.',
-      benefits: ['Local currency processing', 'Statutory deductions (PAYE, CSG)', 'Employee self-service portals', 'HR tool integrations'],
+      description: 'Seamless payroll processing for global and local teams.',
+      benefits: ['Multi-currency processing', 'Statutory deductions (PAYE, CSG)', 'Employee self-service portals', 'HR tool integrations'],
       process: ['Employee Setup', 'Monthly Run', 'Direct Deposits', 'Compliance Reporting']
     }
   ];
   const packages = [
     { name: 'Starter', price: '$299', features: ['Monthly Bookkeeping', 'VAT Returns', 'Standard Reporting', 'Email Support'] },
     { name: 'Growth', price: '$799', features: ['Weekly Bookkeeping', 'Management Accounts', 'Payroll (up to 10)', 'Strategy Sessions'] },
-    { name: 'Enterprise', price: 'Custom', features: ['Daily Reconciliation', 'Full CFO Services', 'MRA Tax Compliance', 'Dedicated Manager'] }
+    { name: 'Enterprise', price: 'Custom', features: ['Daily Reconciliation', 'Full CFO Services', 'Global Tax Compliance', 'Dedicated Manager'] }
   ];
   return (
     <main className="relative min-h-screen bg-[#0B1120] text-slate-50 overflow-x-hidden selection:bg-emerald-500 selection:text-white">
@@ -48,30 +47,26 @@ export function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <section className="text-center mb-24">
-            <motion.h1
+            <motion.h1 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-6xl font-bold mb-6"
             >
               Our Specialized <span className="text-emerald-500">Expertise</span>
             </motion.h1>
-            <motion.p
+            <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-xl text-slate-400 max-w-2xl mx-auto"
             >
-              Precision-engineered financial solutions for enterprises operating in Mauritius.
+              Precision-engineered financial solutions for modern enterprises operating across global borders.
             </motion.p>
           </section>
           {/* Deep Dives */}
           <section className="space-y-32 mb-32">
             {deepDives.map((service, idx) => (
-              <div 
-                key={service.id} 
-                id={service.id} 
-                className={`flex flex-col lg:flex-row gap-16 items-center scroll-mt-32 ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-              >
+              <div key={service.id} className={`flex flex-col lg:flex-row gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 <div className="flex-1 space-y-8">
                   <div className="h-16 w-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
                     <service.icon className="h-8 w-8 text-emerald-400" />
@@ -130,11 +125,9 @@ export function ServicesPage() {
                       </div>
                     ))}
                   </div>
-                  <Link to="/contact">
-                    <Button className={pkg.name === 'Growth' ? 'btn-emerald w-full' : 'bg-white/10 hover:bg-white/20 text-white w-full'}>
-                      Get Started
-                    </Button>
-                  </Link>
+                  <Button className={pkg.name === 'Growth' ? 'btn-emerald' : 'bg-white/10 hover:bg-white/20 text-white'}>
+                    Get Started
+                  </Button>
                 </GlassCard>
               ))}
             </div>
@@ -146,19 +139,19 @@ export function ServicesPage() {
               <AccordionItem value="item-1" className="glass-panel px-6 rounded-xl border-none">
                 <AccordionTrigger className="text-white hover:no-underline">How do you handle Mauritius specific compliance?</AccordionTrigger>
                 <AccordionContent className="text-slate-400">
-                  Our core team is based in Beau Bassin-Rose Hill. We handle all MRA filings, CSG/PAYE, and ensure compliance with the Companies Act 2001 and subsequent amendments.
+                  Our core team is based in Ebene Cybercity. We handle all MRA filings, CSG/PAYE, and ensure compliance with the Companies Act 2001 and subsequent amendments.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2" className="glass-panel px-6 rounded-xl border-none">
-                <AccordionTrigger className="text-white hover:no-underline">What cloud accounting software do you use?</AccordionTrigger>
+                <AccordionTrigger className="text-white hover:no-underline">Do you support UK-based businesses?</AccordionTrigger>
                 <AccordionContent className="text-slate-400">
-                  We are certified partners with Xero, QuickBooks Online, and Sage. We also integrate with modern payroll tools for Mauritius businesses.
+                  Yes, we have a dedicated UK compliance center in London focusing on HMRC filings, VAT registration, and Companies House reporting for international entrepreneurs.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3" className="glass-panel px-6 rounded-xl border-none">
-                <AccordionTrigger className="text-white hover:no-underline">Are you available for in-person meetings?</AccordionTrigger>
+                <AccordionTrigger className="text-white hover:no-underline">What cloud accounting software do you use?</AccordionTrigger>
                 <AccordionContent className="text-slate-400">
-                  Yes, our primary headquarters is at 41 Avenue Taher, Beau Bassin-Rose Hill. We welcome local clients for strategy sessions.
+                  We are certified partners with Xero, QuickBooks Online, and Sage. We also integrate with modern payroll tools like Gusto or Deel for global teams.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
